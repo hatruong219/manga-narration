@@ -1,0 +1,15 @@
+# Ảnh scan truyện — có bản quyền, KHÔNG đẩy lên repo. Tải lại được bằng crawl-chapter.py
+series/*/C*/pages/
+series/*/C*/pages-clean/
+
+# Sản phẩm tái tạo được từ nguồn sự thật (narration.tsv, shots.tsv)
+series/*/C*/results/shots/
+series/*/C*/results/audio/
+series/*/C*/results/export/
+series/*/C*/results/tts-lines/
+series/*/C*/results/_old-3min/
+series/*/videos/
+
+# Cache
+__pycache__/
+*.pyc

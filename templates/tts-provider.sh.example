@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Khung gọi nhà cung cấp TTS BẤT KỲ. Copy thành my-tts.sh, chmod +x, điền phần <...>.
+#
+# >>> Riêng Vbee thì KHÔNG cần file này: đã có sẵn scripts/tts-vbee.py (viết theo
+#     Postman collection chính thức của Vbee). Dùng cái đó.
+#
+# Bẫy chung, Vbee dính cả hai:
+#   1) Lỗi trả kèm HTTP 200, nằm trong thân JSON -> đừng tin mã trạng thái.
+#   2) API nhận việc rồi trả mã request, KHÔNG trả audio -> phải poll lấy link.
+#
+#   tts-loop.py gọi file này với đúng 2 tham số:
+#     $1 = file text vào   (vd tts-lines/S01.txt)
+#     $2 = file audio ra   (vd audio/S01.mp3)
+#
+# Lấy endpoint + tên trường từ tài liệu API của nhà cung cấp — đừng đoán.
+set -euo pipefail
+
+IN="$1"; OUT="$2"
+: "${VBEE_KEY:?đặt biến môi trường VBEE_KEY trước khi chạy}"
+
+TEXT=$(cat "$IN")
+
+# jq -Rn để escape đúng dấu nháy và xuống dòng trong text tiếng Việt.
+# Thiếu bước này là JSON vỡ ở những câu có dấu ngoặc kép.
+BODY=$(jq -Rn --arg t "$TEXT" '{
+  text:  $t,
+  voice_code: "<mã giọng>",
+  audio_type: "mp3"
+}' <<< "")
+
+HTTP=$(curl -sS -o "$OUT" -w '%{http_code}' \
+  -X POST '<endpoint từ tài liệu Vbee>' \
+  -H "Authorization: Bearer $VBEE_KEY" \
+  -H 'Content-Type: application/json' \
+  --data-binary "$BODY")
+
+# Nhiều API trả JSON lỗi kèm HTTP 200, hoặc trả LINK thay vì audio.
+# Kiểm thật thay vì tin mã trạng thái.
+if [ "$HTTP" != "200" ]; then
+  echo "HTTP $HTTP: $(head -c 200 "$OUT")" >&2; rm -f "$OUT"; exit 1
+fi
+if ! file -b --mime-type "$OUT" | grep -q '^audio/'; then
+  # Trả link thì tải tiếp. Sửa '.result.audio_link' cho khớp tài liệu.
+  LINK=$(jq -r '.result.audio_link // empty' "$OUT" 2>/dev/null || true)
+  if [ -n "$LINK" ]; then
+    curl -sS -o "$OUT" "$LINK"
+  else
+    echo "không phải audio: $(head -c 200 "$OUT")" >&2; rm -f "$OUT"; exit 1
+  fi
+fi
