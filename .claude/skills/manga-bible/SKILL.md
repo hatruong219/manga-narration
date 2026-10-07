@@ -9,7 +9,7 @@ Chạy một lần cho mỗi bộ. Output là file tham chiếu cho MỌI chapte
 
 ## Đầu vào
 
-`series/{BỘ}/C*/pages/` của 1–2 chapter đầu. Không có ảnh thì hỏi user thả vào đâu, đừng đoán.
+`truyen/{BỘ}/prepare/C*/pages/` của 1–2 chapter đầu. Không có ảnh thì hỏi user thả vào đâu, đừng đoán.
 
 ## Vai trò
 
@@ -24,7 +24,7 @@ một cái tên sai ở đây là 50 video sai.
 ## Việc cần làm
 
 1. Đọc hết ảnh trong `pages/` bằng tool Read (đọc **phải → trái, trên → dưới**).
-2. Ghi ra `series/{BỘ}/series-bible.md` theo đúng cấu trúc dưới.
+2. Ghi ra `truyen/{BỘ}/series-bible.md` theo đúng cấu trúc dưới.
 3. In ra 3 điểm `CHƯA RÕ` quan trọng nhất để user bổ sung.
 
 ## Cấu trúc output
@@ -54,5 +54,5 @@ một cái tên sai ở đây là 50 video sai.
 
 ## Xong thì
 
-Nhắc user: `series/{BỘ}/voice-profile.md` bắt đầu rỗng và sẽ tự dày lên sau mỗi vòng
+Nhắc user: `truyen/{BỘ}/voice-profile.md` bắt đầu rỗng và sẽ tự dày lên sau mỗi vòng
 `/manga-qc`. Không cần điền tay.

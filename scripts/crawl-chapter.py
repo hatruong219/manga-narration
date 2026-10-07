@@ -7,13 +7,19 @@ Chạy:
 Cách tìm ảnh: trang đọc truyện lazy-load ảnh qua data-src, còn src là logo và ảnh
 quảng cáo. Script lấy data-src, rồi giữ lại host XUẤT HIỆN NHIỀU NHẤT — đó là CDN ảnh
 trang. Không hardcode tên host nào nên chạy được với nhiều site.
+
+Site bỏ lazy-load (data-src rỗng) thì lùi về src. Lúc đó logo/thumb/quảng cáo lẫn vào
+cùng host CDN, nên lọc thêm một tầng: ảnh trang của một chapter luôn chung MỘT thư mục
+(`/<bộ>/<chương>/0.jpg`), còn thumb nằm `/thumb/`.
 """
-import argparse, collections, re, subprocess, sys, time
+import argparse, collections, hashlib, re, subprocess, sys, time
 from io import BytesIO
 from pathlib import Path
 
 from curl_cffi import requests as cr
 from PIL import Image
+
+from paths import prepare_dir
 
 MIN_WIDTH = 1200          # dưới ngưỡng này AI đọc không ra chữ trong bong bóng thoại
 DELAY = 0.4               # giây giữa 2 request, đừng dập CDN
@@ -25,23 +31,49 @@ def session() -> cr.Session:
     return cr.Session(impersonate="chrome", timeout=40)
 
 
-def find_images(html: str) -> list[str]:
-    """data-src theo đúng thứ tự trang, lọc còn host chiếm đa số."""
-    cands = [u for u in re.findall(r'data-src\s*=\s*["\']([^"\']+)["\']', html)
-             if IMG_EXT.search(u) and u.startswith("http")]
-    if not cands:
+def _attr_urls(html: str, attr: str, dedupe: bool = False) -> list[str]:
+    """URL ảnh trong một thuộc tính, giữ nguyên thứ tự xuất hiện."""
+    seen: set[str] = set()
+    out = []
+    for u in re.findall(rf'{attr}\s*=\s*["\']([^"\']+)["\']', html):
+        if not (u.startswith("http") and IMG_EXT.search(u)):
+            continue
+        if dedupe and u in seen:
+            continue
+        seen.add(u)
+        out.append(u)
+    return out
+
+
+def _keep_top(urls: list[str], key) -> list[str]:
+    if not urls:
         return []
+    top, _ = collections.Counter(key(u) for u in urls).most_common(1)[0]
+    return [u for u in urls if key(u) == top]
+
+
+def find_images(html: str) -> list[str]:
+    """Ảnh trang theo đúng thứ tự, lọc còn host chiếm đa số."""
     host = re.compile(r"https?://([^/]+)/")
-    top, _ = collections.Counter(
-        m.group(1) for u in cands if (m := host.match(u))).most_common(1)[0]
-    return [u for u in cands if f"//{top}/" in u]
+    by_host = lambda u: (m.group(1) if (m := host.match(u)) else "")
+
+    cands = _attr_urls(html, "data-src")
+    if cands:
+        return _keep_top(cands, by_host)
+
+    # Không có lazy-load: src lẫn logo, thumb, quảng cáo. Lọc host rồi lọc tiếp thư mục
+    # — ảnh trang của một chapter luôn chung một thư mục trên CDN.
+    by_dir = lambda u: u.rsplit("/", 1)[0]
+    return _keep_top(_keep_top(_attr_urls(html, "src", dedupe=True), by_host), by_dir)
 
 
 def derive(url: str, bo: str | None, chapter: str | None) -> tuple[str, str, str]:
     """Suy mã bộ + số chapter từ URL nếu không được truyền vào."""
     parts = [p for p in url.split("?")[0].rstrip("/").split("/") if p]
-    slug = next((p for p in reversed(parts) if not p.lower().startswith("chapter")), "series")
-    ch = chapter or (m.group(1) if (m := re.search(r"chapter[-_]?([\d.]+)", url, re.I)) else "0")
+    # Site tiếng Việt đặt là chuong-1, site tiếng Anh là chapter-1 — nhận cả hai.
+    seg = re.compile(r"(?:chapter|chuong|chap)[-_]?[\d.]*$", re.I)
+    slug = next((p for p in reversed(parts) if not seg.match(p)), "series")
+    ch = chapter or (m.group(1) if (m := re.search(r"(?:chapter|chuong|chap)[-_]?([\d.]+)", url, re.I)) else "0")
     code = bo or "".join(w[0] for w in slug.split("-") if w)[:4].upper() or "SER"
     return code, ch, slug
 
@@ -66,7 +98,7 @@ def main() -> int:
         subprocess.run([str(scaffold), bo, ch], cwd=root,
                        stdout=subprocess.DEVNULL, check=False)
 
-    out = root / "series" / bo / f"C{ch}" / "pages"
+    out = prepare_dir(bo, ch) / "pages"
     out.mkdir(parents=True, exist_ok=True)
 
     s = session()
@@ -88,7 +120,7 @@ def main() -> int:
 
     urls = find_images(r.text)
     if not urls:
-        sys.exit("không tìm được ảnh nào qua data-src. Trang có thể nạp ảnh bằng JS "
+        sys.exit("không tìm được ảnh nào qua data-src lẫn src. Trang có thể nạp ảnh bằng JS "
                  "→ mở DevTools, xem request ảnh thật rồi dùng scripts/fetch-pages.sh")
     if a.limit:
         urls = urls[:a.limit]
@@ -99,8 +131,9 @@ def main() -> int:
     ok = skip = fail = 0
     widths = []
     for i, u in enumerate(urls, 1):
-        ext = (m.group(1).lower() if (m := IMG_EXT.search(u)) else "jpg").replace("jpeg", "jpg")
-        dest = out / f"{bo}_C{ch}_P{i:02d}.{ext}"
+        # Luôn lưu .jpg dù CDN trả webp/png: clean-pages.py, build-shots.py và
+        # build-shot-list.py đều hardcode .jpg, nên chuẩn hoá ở đây là sửa 1 chỗ thay vì 4.
+        dest = out / f"{bo}_C{ch}_P{i:02d}.jpg"
         if dest.exists() and not a.force:
             skip += 1
             continue
@@ -115,7 +148,10 @@ def main() -> int:
             im = Image.open(BytesIO(g.content))
             w, h = im.size
             widths.append(w)
-            dest.write_bytes(g.content)
+            if im.format == "JPEG":
+                dest.write_bytes(g.content)      # đã là jpg: chép thẳng, khỏi nén lại
+            else:
+                im.convert("RGB").save(dest, quality=95)
             flag = "" if w >= MIN_WIDTH else "  HẸP"
             print(f"  P{i:02d} {w}x{h} {len(g.content)//1024}KB{flag}")
             ok += 1
@@ -125,6 +161,20 @@ def main() -> int:
         time.sleep(DELAY)
 
     print(f"\ntải {ok} · có sẵn {skip} · lỗi {fail}")
+
+    # Site trả "CHAPTER ĐANG ĐƯỢC TẢI LÊN" khi chưa đăng ảnh: một ảnh chờ bị cắt thành
+    # nhiều lát, nên các trang TRÙNG NHAU TỪNG BYTE. Đo được, khỏi phải nhìn bằng mắt.
+    files = sorted(f for f in out.iterdir() if f.is_file())
+    if files:
+        seen = collections.Counter(hashlib.md5(f.read_bytes()).hexdigest() for f in files)
+        dup = sum(n - 1 for n in seen.values() if n > 1)
+        if dup >= 2:
+            print(f"\n(!) {dup}/{len(files)} trang TRÙNG NHAU từng byte — gần như chắc chắn "
+                  "đây là trang chờ của site, không phải truyện.")
+            print(f"    Mở thử {files[0].name} bằng mắt. Nếu thấy chữ 'CHAPTER ĐANG ĐƯỢC "
+                  "TẢI LÊN' thì đợi site đăng rồi crawl lại với --force.")
+            print("    ĐỪNG chạy /manga-beat-sheet cho chapter này.")
+            return 2
     if widths:
         mn, mx = min(widths), max(widths)
         print(f"chiều rộng: {mn}–{mx}px")

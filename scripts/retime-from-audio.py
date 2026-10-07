@@ -5,11 +5,13 @@ audio/Sxx.wav bằng ffprobe, cộng dồn từ 00:00, và xuất timeline.md đ
 LỜI KỂ giữ nguyên tuyệt đối — chỉ mốc đổi.
 
 Chạy:
-    python3 scripts/retime-from-audio.py series/TWB/C1/results
-    python3 scripts/retime-from-audio.py series/TWB/C1/results --durations S01=4.2 S02=9.8
+    python3 scripts/retime-from-audio.py truyen/TWB/results/C1
+    python3 scripts/retime-from-audio.py truyen/TWB/results/C1 --durations S01=4.2 S02=9.8
 """
 import argparse, shutil, subprocess, sys
 from pathlib import Path
+
+from paths import bo_ch, sources
 
 AUDIO_EXT = (".wav", ".mp3", ".m4a", ".flac", ".ogg")
 
@@ -32,7 +34,7 @@ def main() -> int:
     ap.add_argument("-o", "--out", type=Path)
     a = ap.parse_args()
 
-    src = a.results / "narration.tsv"
+    src = sources(a.results) / "narration.tsv"
     if not src.exists():
         sys.exit(f"không thấy {src}")
 

@@ -9,7 +9,7 @@ là trên→dưới, trong mỗi dải thì phải→trái (manga Nhật); webto
 thứ tự cột không ảnh hưởng.
 
 Chạy:
-    python3 scripts/detect-panels.py series/TWB/C1/pages-clean/TWB_C1_P05.jpg --preview
+    python3 scripts/detect-panels.py truyen/TWB/prepare/C1/pages-clean/TWB_C1_P05.jpg --preview
     python3 scripts/detect-panels.py <ảnh> --json
 """
 import argparse, json, sys

@@ -4,7 +4,7 @@ Thả 84 file rời vào CapCut rồi tự căn là việc không nên làm tay.
 thứ tự mã shot và xuất luôn mốc vào của từng đoạn.
 
 Chạy:
-    python3 scripts/concat-audio.py series/TWB/C1/results
+    python3 scripts/concat-audio.py truyen/TWB/results/C1
 """
 import argparse, re, shutil, subprocess, sys
 from pathlib import Path

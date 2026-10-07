@@ -4,7 +4,7 @@ Cắt đúng ranh giới đoạn — không bao giờ cắt giữa câu, vì m�
 audio Sxx.mp3 và một ảnh Sxx.jpg.
 
 Chạy:
-    python3 scripts/split-by-quota.py series/TWB/C1/results --quota 3000
+    python3 scripts/split-by-quota.py truyen/TWB/results/C1 --quota 3000
 """
 import argparse, json, sys
 from pathlib import Path

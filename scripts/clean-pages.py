@@ -12,8 +12,8 @@ Cách nhận — dùng LUẬT, không hardcode toạ độ, để chapter sau ch
       panel lửa của truyện sat 0.449 — không tách được.
 
 Chạy:
-    python3 scripts/clean-pages.py series/TWB/C1/pages --dry-run
-    python3 scripts/clean-pages.py series/TWB/C1/pages
+    python3 scripts/clean-pages.py truyen/TWB/prepare/C1/pages --dry-run
+    python3 scripts/clean-pages.py truyen/TWB/prepare/C1/pages
 """
 import argparse, re, sys
 from pathlib import Path

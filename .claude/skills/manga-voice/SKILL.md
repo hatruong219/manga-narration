@@ -13,7 +13,7 @@ toán từ số từ. Có giọng rồi thì chỉnh timeline **hình** theo aud
 `results/narration-tts.txt` do `build-narration.py` sinh ra, mỗi dòng `[Sxx] <lời>`.
 
 Trước khi đọc cả chapter, **đọc thử 1 đoạn có tên riêng** để nghe máy phát âm. Sai thì sửa
-`series/<BỘ>/tts-pronounce.tsv` (2 cột TAB: từ gốc → cách viết cho TTS) rồi chạy lại.
+`truyen/<BỘ>/tts-pronounce.tsv` (2 cột TAB: từ gốc → cách viết cho TTS) rồi chạy lại.
 
 Script chỉ **báo** chứ không tự đổi số thành chữ: `16.820 yên`, `chương 1`, `trang 3` đọc
 khác nhau hoàn toàn, máy đoán sai còn tệ hơn người sửa tay.
@@ -25,8 +25,8 @@ Từng đoạn một file: `results/audio/S01.wav`, `S02.wav`… Một file chun
 ## 3. Re-time
 
 ```bash
-python3 scripts/retime-from-audio.py series/<BỘ>/C<n>/results
-python3 scripts/retime-from-audio.py series/<BỘ>/C<n>/results --durations S01=4.2 S02=9.8
+python3 scripts/retime-from-audio.py truyen/<BỘ>/results/C<n>
+python3 scripts/retime-from-audio.py truyen/<BỘ>/results/C<n> --durations S01=4.2 S02=9.8
 ```
 
 Xuất `timeline.md`: mốc thật, ảnh `shots/Sxx.jpg`, lời kể. Còn báo shot dài quá 14 giây —

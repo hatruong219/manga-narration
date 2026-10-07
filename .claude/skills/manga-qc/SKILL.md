@@ -8,7 +8,7 @@ description: QC lời kể hai vòng — vòng máy chạy linter độ mượt,
 ## Vòng 1 — máy
 
 ```bash
-python3 scripts/check-narration.py series/<BỘ>/C<n>/results/narration.tsv
+python3 scripts/check-narration.py truyen/<BỘ>/prepare/C<n>/narration.tsv
 ```
 
 Bắt: tic liên từ · câu vụn · giật cục · số viết thành chữ quá dài · đổi cách gọi nhân vật.
@@ -37,7 +37,7 @@ trang thật** trước khi đưa vào. Nhận xét về giọng và mạch thì
 
 1. Ghi nhận xét + điểm vào `results/qc-report.md`
 2. Sửa lời trong `narration.tsv`, chạy lại `build-narration.py` rồi `check-narration.py`
-3. **Cập nhật `series/<BỘ>/voice-profile.md`** — bước dễ bỏ nhất và là lý do file đó tồn tại:
+3. **Cập nhật `truyen/<BỘ>/voice-profile.md`** — bước dễ bỏ nhất và là lý do file đó tồn tại:
    - hook đã dùng + mô-típ, để chapter sau không lặp
    - cụm bị gạch kèm lý do
    - cách diễn đạt được chấm cao

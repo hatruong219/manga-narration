@@ -18,19 +18,21 @@ Máng giữa panel không đủ tương phản. **Cắt tự động sai thì vi
 
 **1. Lấy biên đề xuất** cho các trang được dùng:
 ```bash
-python3 scripts/detect-panels.py series/<BỘ>/C<n>/pages-clean/<file>.jpg
+python3 scripts/detect-panels.py truyen/<BỘ>/prepare/C<n>/pages-clean/<file>.jpg
 ```
 
-**2. Viết `results/shots.tsv`** — 6 cột TAB: `shot, trang, x0, y0, x1, y1` (`-1` = hết cỡ).
+**2. Viết `truyen/<BỘ>/prepare/C<n>/shots.tsv`** — 6 cột TAB: `shot, trang, x0, y0, x1, y1` (`-1` = hết cỡ).
 Chọn khung từ biên đề xuất + nội dung trang. Với webtoon cuộn dọc, hầu hết là **full width,
 chỉ chọn dải y**.
 
 **3. Cắt và kiểm:**
 ```bash
-python3 scripts/build-shots.py series/<BỘ>/C<n>/results --sheet
+python3 scripts/build-shots.py truyen/<BỘ>/results/C<n> --sheet
 ```
 
-**4. Đọc contact sheet ở `/tmp/shots-sheet-*.png` bằng tool Read.** Bắt buộc, không bỏ.
+**4. Đọc contact sheet ở `truyen/<BỘ>/results/C<n>/export/shots-sheet-*.png` bằng tool Read.**
+Bắt buộc, không bỏ. Sheet nằm trong thư mục của chính chương đó — trước kia ghi ra `/tmp`
+với tên cố định, nên hai chương cắt ảnh cùng lúc ghi đè sheet của nhau và agent soi nhầm chương.
 
 ## Hai tầng kiểm, cả hai đều cần
 
@@ -52,7 +54,7 @@ tiếp. Đó là bản chất format kể truyện, đừng churn.
 
 ## Xong thì
 ```bash
-python3 scripts/build-shot-list.py series/<BỘ>/C<n>/results
+python3 scripts/build-shot-list.py truyen/<BỘ>/results/C<n>
 ```
 Nó còn báo: shot liên tiếp trùng trang (phải đổi khung) và trang tải về mà không dùng
 (có thể đã bỏ sót nội dung).

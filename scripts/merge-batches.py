@@ -5,8 +5,8 @@ script khớp theo THỨ TỰ trong lô thay vì tin vào tên file. Nếu tên 
 thì dùng luôn mã đó.
 
 Chạy:
-    python3 scripts/merge-batches.py series/TWB/C1/results
-    python3 scripts/merge-batches.py series/TWB/C1/results --dry-run
+    python3 scripts/merge-batches.py truyen/TWB/results/C1
+    python3 scripts/merge-batches.py truyen/TWB/results/C1 --dry-run
 """
 import argparse, json, re, shutil, subprocess, sys
 from pathlib import Path

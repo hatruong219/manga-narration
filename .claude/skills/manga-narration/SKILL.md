@@ -9,10 +9,10 @@ Chỉ chạy **sau khi user duyệt** `beat-sheet.md`.
 
 ## Đọc trước khi viết — đủ 4 tầng
 
-1. `series/<BỘ>/series-bible.md` — tên, thuật ngữ, giọng, cụm CẤM dùng
-2. `series/<BỘ>/voice-profile.md` — cách diễn đạt đã ăn, cụm đã bị gạch, nhịp đang chạy
-3. **Lời kể của 2 chapter gần nhất** (`results/narration.tsv`) — bắt nhịp thật
-4. `results/beat-sheet.md` của chapter đang làm
+1. `truyen/<BỘ>/series-bible.md` — tên, thuật ngữ, giọng, cụm CẤM dùng
+2. `truyen/<BỘ>/voice-profile.md` — cách diễn đạt đã ăn, cụm đã bị gạch, nhịp đang chạy
+3. **Lời kể của 2 chapter gần nhất** (`prepare/C<n>/narration.tsv`) — bắt nhịp thật
+4. `prepare/C<n>/beat-sheet.md` của chapter đang làm
 
 Nhiều hơn 2 chapter thì dùng `voice-profile.md` — nó là bản đúc kết. Đọc cả 50 chapter sẽ
 vỡ context mà không giúp thêm.
@@ -23,7 +23,7 @@ Tốc độ đọc **3,5 từ/giây** cho giọng kể truyện (đo từ video 
 cho clip phân tích ngắn). Một chapter webtoon ~50 trang cho ra **7–8 phút**. Muốn 10–12 phút
 thì gom 2 chapter vào một video.
 
-## Viết vào `results/narration.tsv` — 2 cột TAB
+## Viết vào `truyen/<BỘ>/prepare/C<n>/narration.tsv` — 2 cột TAB
 
 ```
 gợi ý trang<TAB>lời kể
@@ -50,11 +50,21 @@ Mỗi dòng là một đoạn ~5–12 giây. Cột trang là gợi ý ảnh, **k
 - **Đổi cách gọi nhân vật liên tục** — chốt **một tên + một đại từ** cho người kể; các cách
   gọi khác chỉ dùng khi thuật lời nhân vật.
 
+## Đừng kể TRANG, kể CHUYỆN
+
+Chốt 28/09/2026 sau khi lỗi này lọt qua cả 5 chương đầu (C6-C10): không viết
+câu nào tường thuật việc một TRANG/KHUNG/BẢNG TÊN xuất hiện — vd "Tên chương
+hiện lên: 'Chương N — Tên'", "Trang màu tên chương hiện lên...". Đây là ngôn
+ngữ giới thiệu sản phẩm/trang, không phải kể chuyện. Panel trang bìa/splash
+đầu chương thường chỉ có chữ tên chương + một hình nền: nếu hình nền đó có nội
+dung thật (nhân vật, bối cảnh) thì CHỈ kể đúng nội dung đó; nếu panel không có
+gì khác ngoài chữ tên chương thì bỏ hẳn dòng đó, không viết thay thế gì cả.
+
 ## Dựng bảng và kiểm
 
 ```bash
-python3 scripts/build-narration.py series/<BỘ>/C<n>/results --wps 3.5
-python3 scripts/check-narration.py series/<BỘ>/C<n>/results/narration.tsv
+python3 scripts/build-narration.py truyen/<BỘ>/results/C<n> --wps 3.5
+python3 scripts/check-narration.py truyen/<BỘ>/prepare/C<n>/narration.tsv
 ```
 
 Linter phải **MƯỢT** mới sang bước sau. Nó bắt được thứ tai nghe ra mà không chỉ được tên.

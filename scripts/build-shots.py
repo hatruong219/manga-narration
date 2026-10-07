@@ -4,11 +4,13 @@ shots.tsv — 6 cột TAB: shot, trang, x0, y0, x1, y1.  Dùng -1 cho "hết c�
 Toạ độ tính trên ảnh trong pages-clean/.
 
 Chạy:
-    python3 scripts/build-shots.py series/TWB/C1/results
-    python3 scripts/build-shots.py series/TWB/C1/results --sheet   # thêm contact sheet để kiểm
+    python3 scripts/build-shots.py truyen/TWB/results/C1
+    python3 scripts/build-shots.py truyen/TWB/results/C1 --sheet   # thêm contact sheet để kiểm
 """
 import argparse, sys
 from pathlib import Path
+
+from paths import bo_ch, sources
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -19,16 +21,17 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("results", type=Path)
     ap.add_argument("--pages", default="pages-clean")
-    ap.add_argument("--sheet", action="store_true", help="ghi contact sheet ra /tmp để kiểm mắt")
+    ap.add_argument("--sheet", action="store_true",
+                    help="ghi contact sheet vào results/<C>/export/ để kiểm mắt")
     ap.add_argument("--sheet-cols", type=int, default=6)
     a = ap.parse_args()
 
-    src = a.results / "shots.tsv"
+    prep = sources(a.results)
+    src = prep / "shots.tsv"
     if not src.exists():
         sys.exit(f"không thấy {src}")
-    chapter = a.results.parent
-    bo, ch = chapter.parent.name, chapter.name.lstrip("C")
-    pdir = chapter / a.pages
+    bo, ch = bo_ch(a.results)
+    pdir = prep / a.pages
     out = a.results / "shots"
     out.mkdir(parents=True, exist_ok=True)
 
@@ -88,7 +91,12 @@ def main() -> int:
                     d.text((x + 4, y + 2), s, font=fnt, fill=(255, 220, 90))
                     x += im.width + 8
                 y += TH + 30
-            p = Path(f"/tmp/shots-sheet-{page_i // (cols * 3) + 1}.png")
+            # Ghi vào thư mục của CHÍNH chương này, không phải /tmp. Đường dẫn /tmp
+            # cố định nên hai chương cắt ảnh cùng lúc sẽ ghi đè sheet của nhau —
+            # đã xảy ra thật: agent chương 3 mở sheet ra thì thấy ảnh chương 2.
+            sheet_dir = a.results / "export"
+            sheet_dir.mkdir(parents=True, exist_ok=True)
+            p = sheet_dir / f"shots-sheet-{page_i // (cols * 3) + 1:02d}.png"
             sheet.save(p)
             print("sheet:", p)
     return 0

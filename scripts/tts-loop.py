@@ -9,8 +9,8 @@ Loop này KHÔNG xử lý quota — hết token thì lệnh bên ngoài fail, n�
 chạy lại là tiếp đúng chỗ dừng vì file đã có được bỏ qua.
 
 Chạy:
-    python3 scripts/tts-loop.py series/TWB/C1/results --exec ./my-tts.sh --quota 1000
-    python3 scripts/tts-loop.py series/TWB/C1/results --exec ./my-tts.sh --dry-run
+    python3 scripts/tts-loop.py truyen/TWB/results/C1 --exec ./my-tts.sh --quota 1000
+    python3 scripts/tts-loop.py truyen/TWB/results/C1 --exec ./my-tts.sh --dry-run
 """
 import argparse, subprocess, sys
 from pathlib import Path

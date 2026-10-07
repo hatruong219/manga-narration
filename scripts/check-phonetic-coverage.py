@@ -7,7 +7,7 @@ BỘ ÂM (âm đầu × vần × thanh), không phải phủ đủ TỪ.
 File này đếm xem tập text đã phủ bao nhiêu, và chỉ ra chỗ mỏng cần đọc thêm.
 
 Chạy:
-    python3 scripts/check-phonetic-coverage.py series/TWB/C1/results/narration.tsv
+    python3 scripts/check-phonetic-coverage.py truyen/TWB/prepare/C1/narration.tsv
     python3 scripts/check-phonetic-coverage.py <file.txt> --min 5
 """
 import argparse, re, sys, unicodedata

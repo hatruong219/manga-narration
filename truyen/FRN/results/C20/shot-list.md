@@ -1,0 +1,90 @@
+# SHOT LIST — FRN chapter 20
+
+> Sinh từ `narration.tsv` bằng `scripts/build-shot-list.py`.
+> Ảnh dựng ở `truyen/FRN/prepare/C20/pages-clean`
+
+**Mốc là DỰ TOÁN** ở 3.5 từ/giây. Có giọng đọc thật rồi thì dựng theo
+`timeline.md` do `retime-from-audio.py` sinh ra.
+
+- 70 shot · 18/22 trang được dùng · tổng 7:53
+
+| Shot | Vào | Dài | File ảnh | Lời kể |
+|---|---|---|---|---|
+| S01 | 0:00 | 5s | `FRN_C20_P08.jpg` | "Frieren à. Rốt cuộc thì ngươi đã đào tạo những gì cho con bé này vậy?" |
+| S02 | 0:04 | 6s | `FRN_C20_P08.jpg` | Một con quỷ sừng lớn buông câu hỏi ấy ngay giữa trận, đứng trên một mái nhà đá chìm trong đêm. |
+| S03 | 0:10 | 4s | `FRN_C20_P08.jpg` | Chuyện bắt đầu êm đềm hơn nhiều, tại một quán cà phê nhỏ nào đó. |
+| S04 | 0:14 | 5s | `FRN_C20_P03.jpg` | Trong quán cà phê ấy, một cô gái tóc hai búi tì cằm lên tay, vẻ mặt chán nản. |
+| S05 | 0:20 | 10s | `FRN_C20_P03.jpg` | Cô gái tóc dài ngồi cạnh chỉ tay vào một cuốn sách phép mở sẵn, giảng giải điều gì đó, trong khi một bóng tóc sẫm lặng lẽ ngồi quay lưng ở bàn kế bên. |
+| S06 | 0:30 | 9s | `FRN_C20_P04.jpg` | Đứng trước tường thành dưới bầu trời đêm, một con quỷ sừng lớn khoác áo choàng dài tự nhận đã cống hiến phần lớn đời mình để theo đuổi phép thuật. |
+| S07 | 0:39 | 4s | `FRN_C20_P04.jpg` | Cô gái tóc dài đứng quay lưng lại, đáp gọn: ta cũng thế cả thôi. |
+| S08 | 0:43 | 10s | `FRN_C20_P04.jpg` | Giữa đêm, hai người đối mặt nhau trên nền trời đầy sao — cô đưa khiên lục giác chắn ngang khi cánh tay đen dạng xúc tu của quỷ vung tới, tiếng va chạm nổ vang. |
+| S09 | 0:53 | 7s | `FRN_C20_P05.jpg` | Tay tua rua của hắn vừa bay vọt lên, hắn đã phải thốt lên ngạc nhiên: gì đây, tốc độ phản ứng này... |
+| S10 | 1:00 | 6s | `FRN_C20_P05.jpg` | Nếu lúc ấy không phòng thủ theo phản xạ, hắn tự nhủ, có lẽ tim mình đã bị xuyên thủng mất rồi. |
+| S11 | 1:06 | 9s | `FRN_C20_P05.jpg` | Cô gái tóc dài đáp lại ngay, khoé miệng khẽ nhếch lên: vậy là ngươi đã phòng thủ đúng chỗ ấy — quả nhiên tim là điểm trọng yếu của quỷ. |
+| S12 | 1:15 | 3s | `FRN_C20_P05.jpg` | Hắn nhìn cô, ánh mắt sắc lại: con bé này... |
+| S13 | 1:18 | 7s | `FRN_C20_P05.jpg` | Ra thế, hắn tiếp lời: có vẻ như cô không hề nói dối trong việc cống hiến cả đời mình cho phép thuật nhỉ. |
+| S14 | 1:25 | 3s | `FRN_C20_P05.jpg` | Cánh tay đen của hắn bùng lên mạnh hơn hẳn. |
+| S15 | 1:28 | 10s | `FRN_C20_P06.jpg` | Đã thế thì hắn phải dốc hết sức để triệt hạ cô, hắn tuyên bố, cánh tay đen vươn dài thành những xúc tu quấn kín khung trời: Baruterie, phép thuật điều khiển máu. |
+| S16 | 1:37 | 7s | `FRN_C20_P06.jpg` | Ở một khu rừng tối cách đó không xa, Linie dừng bước, khẽ nói bên kia đã bắt đầu trận của mình rồi. |
+| S17 | 1:44 | 10s | `FRN_C20_P06.jpg` | Cô ngồi xuống bên đống lửa, khẽ tiếc nuối: nhưng cũng tiếc thật đấy — mắt vẫn dõi về phía những tia chớp loé lên từ xa, nơi trận đánh kia đang diễn ra. |
+| S18 | 1:54 | 9s | `FRN_C20_P07.jpg` | Từ xa, một quỷ nhỏ đứng nép sau thân cây quan sát, tự nhủ có lẽ chỉ nên đứng nhìn thôi — nếu can thiệp, ngài Lugner chắc chắn sẽ nổi đoá. |
+| S19 | 2:03 | 7s | `FRN_C20_P07.jpg` | Tựa lưng vào một gốc cây, Stark bị thương nặng, thì thầm với chính mình rằng chỗ của họ đã kết thúc mất rồi. |
+| S20 | 2:10 | 9s | `FRN_C20_P07.jpg` | Ngay sau đó, cậu gượng đứng dậy, tự phản bác câu vừa buông ra: vẫn chưa kết thúc đâu — khiến ai đó đứng sau bật hỏi lại, ôi chà? |
+| S21 | 2:18 | 9s | `FRN_C20_P07.jpg` | Linie ngồi xổm gần đó, vũ khí trong tay, mắt nheo lại đáp trả: chắc ta có thể tận hưởng thêm chút ít nữa rồi — cố chấp quá đấy. |
+| S22 | 2:27 | 6s | `FRN_C20_P08.jpg` | Trên mái nhà đá giữa đêm, hắn và cô gái tóc dài lao vào nhau, một đòn lớn xé ngang bầu trời. |
+| S23 | 2:33 | 7s | `FRN_C20_P08.jpg` | Hắn nhận ra khoảng cách quá lớn giữa đôi bên: cả ma lực, kỹ thuật, lẫn khả năng kiểm soát, hắn đều vượt trội rõ rệt. |
+| S24 | 2:40 | 7s | `FRN_C20_P08.jpg` | Giữa trận, hắn lại tự hỏi chính mình: Frieren à, rốt cuộc thì ngươi đã đào tạo những gì cho con bé này vậy? |
+| S25 | 2:47 | 4s | `FRN_C20_P08.jpg` | Hắn nhận ra con bé đang dồn mình vào thế tiến thoái lưỡng nan. |
+| S26 | 2:51 | 4s | `FRN_C20_P08.jpg` | Hắn thừa nhận thêm một điều nữa: con bé vẫn quá nhanh so với hắn. |
+| S27 | 2:56 | 8s | `FRN_C20_P09.jpg` | Không, hắn nghĩ, khó rồi đây — con bé sẽ tự kết liễu chính mình trước khi hắn kịp câu giờ đến lúc cô cạn ma lực. |
+| S28 | 3:03 | 9s | `FRN_C20_P09.jpg` | Hắn định bôn tẩu, chờ tới khi con bé tiêu hao hết ma lực, nhưng một đòn bất ngờ sượt ngang người ngay lúc hắn vừa quay lưng rút lui. |
+| S29 | 3:12 | 7s | `FRN_C20_P09.jpg` | Ở một nơi khác, một quỷ sừng dài quát lớn gọi tên Linie, giục em xử gọn thằng nhóc đang cản đường ngay lập tức. |
+| S30 | 3:19 | 7s | `FRN_C20_P09.jpg` | Trở lại trên mái nhà, hắn bước xuống bậc thang đá, thì thầm một mình: nếu như có thể tạo ra sơ hở thì... |
+| S31 | 3:26 | 9s | `FRN_C20_P10.jpg` | Linie nghiêng đầu nhìn Stark vẫn gắng gượng phòng thủ, buông một câu chê bai: bướng bỉnh thật đó, tên nhóc này vẫn cứng đầu phòng thủ được cơ à. |
+| S32 | 3:34 | 5s | `FRN_C20_P10.jpg` | Cái kiểu vung rìu ấy khiến Stark sững người — đó là kỹ thuật của chính sư phụ cậu. |
+| S33 | 3:40 | 12s | `FRN_C20_P10.jpg` | Linie giải thích cơ chế của mình, hình ảnh một hiệp sĩ giáp trụ hiện lên bên cạnh: cô luôn ghi nhớ dòng ma lực của đối phương khi họ chuyển động, nhờ vậy sao chép lại được hành động ấy. |
+| S34 | 3:52 | 5s | `FRN_C20_P10.jpg` | Cô thêm một câu, hất cằm lên: ta có thiên phú trong việc đọc các loại ma lực. |
+| S35 | 3:57 | 9s | `FRN_C20_P10.jpg` | Mưa rơi trong ký ức: một hiệp sĩ và Stark từng đối đầu nhau ngay tại dinh thự, nơi Linie nói cô đã nhận ra chuyển động ấy ngay từ lần đó. |
+| S36 | 4:06 | 3s | `FRN_C20_P10.jpg` | Hai lưỡi rìu va nhau chan chát, tóe lửa giữa màn mưa. |
+| S37 | 4:09 | 7s | `FRN_C20_P11.jpg` | Stark trân trối nhìn, nhận ra chuyển động ấy giống hệt những đòn thế của đại chiến binh Eisen mà cậu từng khắc ghi từ trước. |
+| S38 | 4:17 | 9s | `FRN_C20_P11.jpg` | Trời mưa, một nhóm người đứng quanh khoảnh đất trống, người khoác áo choàng giơ tay lên, trong khi cô gái nhỏ nép sau gốc cây nhìn mọi thứ diễn ra. |
+| S39 | 4:26 | 5s | `FRN_C20_P11.jpg` | Linie xác nhận, nhếch mép cười: ta đã sao chép chuyển động của chiến binh Eisen đấy. |
+| S40 | 4:30 | 11s | `FRN_C20_P11.jpg` | Gần đó, một quỷ nhỏ tai nhọn nhận xét số phận thật thú vị khi mọi chuyện trùng hợp đến vậy, trong khi một chàng trai tóc sẫm đứng cạnh chỉ biết lắp bắp không thể nào. |
+| S41 | 4:41 | 8s | `FRN_C20_P12.jpg` | Thế quái nào, Stark lẩm bẩm, mình làm gì mà cứ... — Linie xoay người tung một đòn quật mạnh, hạ cậu xuống ngay giữa câu nói. |
+| S42 | 4:49 | 7s | `FRN_C20_P12.jpg` | Cậu bị hất văng giữa chừng, câu nói chưa kịp dứt lời, trong khi Linie đứng một mình giữa rừng, lặng lẽ quan sát. |
+| S43 | 4:55 | 5s | `FRN_C20_P12.jpg` | Phải mau lên mới được, Linie tự giục mình, nếu không ngài Lugner sẽ lại nổi giận. |
+| S44 | 5:00 | 5s | `FRN_C20_P12.jpg` | Cô nhìn Stark nằm bất động, buông một câu: cuối cùng thì ngươi cũng gục rồi. |
+| S45 | 5:05 | 9s | `FRN_C20_P13.jpg` | Đứng dậy ngay, Stark — một giọng quát vang lên từ ký ức, trong lúc Stark hiện tại nằm gục trên đất, nghĩ thầm mình đã thua trong trận chiến này rồi. |
+| S46 | 5:14 | 4s | `FRN_C20_P13.jpg` | Cậu bé phân bua rằng mình làm gì cũng chẳng thể thắng nổi sư phụ. |
+| S47 | 5:18 | 6s | `FRN_C20_P13.jpg` | Sư phụ chỉ đáp: dù cho có bị hạ gục bao lần đi chăng nữa, thì con vẫn phải đứng dậy. |
+| S48 | 5:24 | 6s | `FRN_C20_P13.jpg` | Vậy tại sao, cậu bé hỏi lại — sư phụ đáp thẳng thừng: tất nhiên rồi, ta mạnh hơn con cơ mà. |
+| S49 | 5:31 | 11s | `FRN_C20_P14.jpg` | Thấy cậu bé chưa hiểu, sư phụ hứa sẽ dạy một bí quyết để chiến thắng kẻ thù hùng mạnh hơn, rồi nói thêm rằng chừng nào còn đứng vững thì vẫn chưa phải là thua cuộc. |
+| S50 | 5:41 | 7s | `FRN_C20_P14.jpg` | Cứ tiếp tục đứng dậy rồi đánh chúng bằng sức mình là được — sư phụ chỉ nói đúng vậy, ngắn gọn: đơn giản thôi. |
+| S51 | 5:48 | 8s | `FRN_C20_P14.jpg` | Sư phụ nhìn thẳng vào cậu, không chớp mắt, buông đúng một câu: chiến binh nào còn đứng vững mới là kẻ dành chiến thắng sau cùng. |
+| S52 | 5:56 | 7s | `FRN_C20_P15.jpg` | Trở lại hiện tại, Stark nhăn mặt than thở: người toàn áp đặt những lí thuyết kì lạ vào trong não bộ của con không à. |
+| S53 | 6:03 | 6s | `FRN_C20_P15.jpg` | Linie châm chọc ngay sau đó: dù gì thì cũng đã thua rồi, sao ngươi không ngủ yên giấc ở đấy đi. |
+| S54 | 6:10 | 6s | `FRN_C20_P15.jpg` | Stark gượng đứng dậy lần nữa, hơi thở đứt quãng nhưng ánh mắt vững vàng: ta vẫn đang đứng vững đấy thôi. |
+| S55 | 6:16 | 4s | `FRN_C20_P16.jpg` | Quả nhiên ngươi chỉ là một kẻ bắt chước, Linie buông lời khinh thường. |
+| S56 | 6:20 | 6s | `FRN_C20_P16.jpg` | Stark đáp lại, ngẩng đầu lên: ta cũng nhớ ra rồi, kỹ thuật của sư phụ có sức nặng hơn rất nhiều. |
+| S57 | 6:26 | 5s | `FRN_C20_P16.jpg` | Linie hạ thấp người, chuẩn bị tung lại đòn sao chép: Erfassen, phép thuật sao chép. |
+| S58 | 6:31 | 8s | `FRN_C20_P16.jpg` | Nếu thế thì ta đành phải siêu thoát cho ngươi bằng chính cái thứ bắt chước này, cô tuyên bố, rồi cả hai cùng lao thẳng vào nhau. |
+| S59 | 6:39 | 6s | `FRN_C20_P17.jpg` | Stark tung một cú vung rộng, không hề phòng vệ — Linie nhìn thấy, cho rằng cậu đã quẫn trí làm liều. |
+| S60 | 6:45 | 6s | `FRN_C20_P17.jpg` | Hai lưỡi rìu khoá chặt vào nhau, nghiến ken két giữa không trung — đòn quyết định của cả trận đấu. |
+| S61 | 6:51 | 5s | `FRN_C20_P18.jpg` | Mắt Linie mở to, không kịp phản ứng khi lưỡi rìu của Stark đã giáng thẳng xuống. |
+| S62 | 6:56 | 1s | `FRN_C20_P18.jpg` | Cú giáng chớp nhoáng!! |
+| S63 | 6:57 | 11s | `FRN_C20_P18.jpg` | Cú đánh ấy lẽ ra phải đau, nhưng Stark chẳng cảm thấy gì ngoài một khoảng lặng — hoá ra nỗi sợ hãi và hèn nhát cậu mang theo bấy lâu chỉ là một ảo tưởng chưa từng có thật. |
+| S64 | 7:09 | 4s | `FRN_C20_P19.jpg` | Linie hứng trọn đòn ấy, máu bắn ra, chỉ kịp thốt lên một tiếng: a... |
+| S65 | 7:13 | 3s | `FRN_C20_P19.jpg` | Quỷ sừng dài ấy hét vang gọi tên cô: Linie!! |
+| S66 | 7:16 | 6s | `FRN_C20_P19.jpg` | Giữa đám lá nhuốm đỏ máu, một cánh tay chìa ra; Stark quay đầu nhìn, không rõ đó là tay của ai. |
+| S67 | 7:22 | 10s | `FRN_C20_P19.jpg` | Ở mái nhà đá nơi trận đánh kia vẫn tiếp diễn, hắn thảng thốt khi thấy cô gái tóc dài bật nhảy lên, một vòng tròn phép thuật sáng rực sau lưng: thôi chết... |
+| S68 | 7:32 | 9s | `FRN_C20_P20.jpg` | Cô gái tóc dài bay vút lên giữa trời đêm, phía sau lưng là một bánh xe phép thuật khổng lồ đang xoay tròn: Soul Track, phép thuật diệt quỷ. |
+| S69 | 7:40 | 8s | `FRN_C20_P20.jpg` | Đòn phép thuật khổng lồ xé ngang bầu trời đêm, đánh trúng hắn giữa một tiếng vỡ vụn long trời, nuốt chửng toàn bộ bóng tối quanh hắn. |
+| S70 | 7:48 | 5s | `FRN_C20_P20.jpg` | Mảnh vỡ bay tứ phía quanh cô, mắt cô không hề chớp, cũng chẳng buồn quay đi. |
+
+### Shot liên tiếp dùng cùng một trang
+Đổi khung hình (zoom vào chi tiết khác), đừng thả trùng ảnh:
+- S02, S03, S05, S07, S08, S10, S11, S12, S13, S14, S16, S17, S19, S20, S21, S23, S24, S25, S26, S28, S29, S30, S32, S33, S34, S35, S36, S38, S39, S40, S42, S43, S44, S46, S47, S48, S50, S51, S53, S54, S56, S57, S58, S60, S62, S63, S65, S66, S67, S69, S70
+
+### 4 trang đã tải nhưng không đoạn nào dùng
+Kiểm xem có bỏ sót nội dung không:
+- `FRN_C20_P01.jpg`, `FRN_C20_P02.jpg`, `FRN_C20_P21.jpg`, `FRN_C20_P22.jpg`

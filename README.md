@@ -68,9 +68,9 @@ mở 10% số câu, 27% câu cực ngắn, 4 câu vụn liên tiếp, đổi cá
 
 ```bash
 python3 scripts/crawl-chapter.py '<url>' --bo TWB      # tải ảnh, tự dựng scaffold
-python3 scripts/clean-pages.py series/TWB/C1/pages     # bỏ banner quảng cáo
+python3 scripts/clean-pages.py truyen/TWB/prepare/C1/pages     # bỏ banner quảng cáo
 python3 scripts/build-narration.py .../results --wps 3.5
-python3 scripts/check-narration.py .../results/narration.tsv   # linter độ mượt
+python3 scripts/check-narration.py .../prepare/C<n>/narration.tsv   # linter độ mượt
 python3 scripts/build-shots.py .../results --sheet     # cắt ảnh + contact sheet
 python3 scripts/build-shot-list.py .../results         # nối lời ↔ ảnh
 python3 scripts/retime-from-audio.py .../results       # mốc theo audio thật
@@ -95,22 +95,26 @@ Mã `Sxx` dùng chung cho `shots/Sxx.jpg`, `audio/Sxx.wav` và dòng trong `time
 ```
 manga-narration/
 ├── .claude/skills/       8 skill (nhận khi cwd trong project)
-├── scripts/              9 script
+├── scripts/              10 script + paths.py (một chỗ duy nhất biết thư mục nằm đâu)
 ├── templates/            file cấp bộ cho truyện mới
-└── series/<BỘ>/
+├── archive/              bộ đã cất kho — giữ phần chữ, ảnh bị .gitignore
+└── truyen/<BỘ>/
     ├── series-bible.md   tên, thuật ngữ, giọng — 1 lần cho cả bộ
     ├── voice-profile.md  tích luỹ sau mỗi QC ← trái tim của việc giữ giọng
     ├── tts-pronounce.tsv map phát âm cho giọng máy
     ├── tracker.csv       chapter | crawl | beat_sheet | narration | qc | shots | audio | dung | ngay_dang
-    └── C<n>/
-        ├── pages/        ảnh gốc
-        ├── pages-clean/  đã bỏ banner ← DÙNG CÁI NÀY
-        └── results/
-            ├── beat-sheet.md   narration.tsv   shots.tsv     ← nguồn sự thật
-            ├── narration.md    narration-tts.txt
-            ├── shot-list.md    timeline.md     qc-report.md
-            ├── shots/          Sxx.jpg
-            └── audio/          Sxx.wav
+    │
+    ├── prepare/C<n>/     NGUYÊN LIỆU — sửa tay, không sinh lại được
+    │   ├── pages/        ảnh gốc
+    │   ├── pages-clean/  đã bỏ banner ← ĐỌC CÁI NÀY
+    │   └── beat-sheet.md   narration.tsv   shots.tsv    ← nguồn sự thật
+    │
+    └── results/C<n>/     THÀNH PHẨM — xoá đi chạy lại là có
+        ├── narration.md    narration-tts.txt   narration-plain.txt
+        ├── shot-list.md    timeline.md         qc-report.md
+        ├── shots/          Sxx.jpg
+        ├── audio/          Sxx.wav
+        └── export/         narration.mp3  video-track.mp4
 ```
 
 ## Cần cài
@@ -119,6 +123,18 @@ manga-narration/
 sudo apt install -y ffmpeg
 pip3 install --user --break-system-packages curl_cffi numpy pillow
 ```
+
+**Máy không có `pip`** (một số bản Python 3.14 không kèm): dựng venv bằng `uv` rồi gọi
+python trong đó, ĐỪNG gọi `python3` trần — `python3` hệ thống không có thư viện nào:
+
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python curl_cffi numpy pillow
+.venv/bin/python scripts/crawl-chapter.py ...      # dùng đường dẫn này cho MỌI script
+```
+
+Ai (hoặc agent nào) chạy `python3 scripts/...` trên máy như vậy sẽ thấy `ModuleNotFoundError`
+và dễ kết luận nhầm là máy thiếu PIL/numpy. Có đủ cả, chỉ nằm trong `.venv`.
 
 `curl_cffi` không thay được bằng `requests`: CDN ảnh fingerprint **TLS handshake**, không
 phải header. curl kèm header browser đầy đủ vẫn ăn 403.

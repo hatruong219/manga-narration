@@ -34,13 +34,13 @@ def main() -> int:
     a = ap.parse_args()
 
     root = Path(__file__).resolve().parent.parent
-    series = root / "series" / a.bo
+    series = root / "truyen" / a.bo
     dest = series / "videos" / a.name
     dest.mkdir(parents=True, exist_ok=True)
 
     tracks, lines, rows, cursor, total_words = [], [], [], 0.0, 0
     for ch in a.chapters:
-        R = series / f"C{ch}" / "results"
+        R = series / "results" / f"C{ch}"
         tsv = R / "narration.tsv"
         if not tsv.exists():
             sys.exit(f"C{ch} chưa có narration.tsv — chạy pipeline cho chapter đó trước")

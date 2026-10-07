@@ -8,10 +8,12 @@ Còn báo hai thứ máy thấy được mà mắt hay bỏ sót:
   - trang đã tải về nhưng không đoạn nào dùng → hoặc bỏ sót nội dung, hoặc trang thừa
 
 Chạy:
-    python3 scripts/build-shot-list.py series/TWB/C1/results
+    python3 scripts/build-shot-list.py truyen/TWB/results/C1
 """
 import argparse, re, sys
 from pathlib import Path
+
+from paths import bo_ch, sources
 
 WPS = 3.5
 
@@ -33,14 +35,13 @@ def main() -> int:
     ap.add_argument("--wps", type=float, default=WPS)
     a = ap.parse_args()
 
-    src = a.results / "narration.tsv"
+    prep = sources(a.results)
+    src = prep / "narration.tsv"
     if not src.exists():
         sys.exit(f"không thấy {src}")
 
-    chapter = a.results.parent
-    series = chapter.parent
-    bo, ch = series.name, chapter.name.lstrip("C")
-    pdir = chapter / a.pages
+    bo, ch = bo_ch(a.results)
+    pdir = prep / a.pages
 
     chunks = []
     for line in src.read_text(encoding="utf-8").splitlines():

@@ -7,9 +7,9 @@ Kênh có doanh thu thì nên cân nhắc dịch vụ có license rõ ràng (Vbe
 Viettel AI) hoặc model tự host có license cho phép (Piper, F5-TTS — đọc license từng model).
 
 Chạy:
-    python3 scripts/tts-edge.py series/TWB/C1/results
-    python3 scripts/tts-edge.py series/TWB/C1/results --voice vi-VN-HoaiMyNeural --rate -5%
-    python3 scripts/tts-edge.py series/TWB/C1/results --only S03      # thử một đoạn
+    python3 scripts/tts-edge.py truyen/TWB/results/C1
+    python3 scripts/tts-edge.py truyen/TWB/results/C1 --voice vi-VN-HoaiMyNeural --rate -5%
+    python3 scripts/tts-edge.py truyen/TWB/results/C1 --only S03      # thử một đoạn
 """
 import argparse, subprocess, sys, time
 from pathlib import Path

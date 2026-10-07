@@ -6,11 +6,12 @@ cd "$(dirname "$0")/.."
 
 BO="${1:?thiếu mã bộ, vd TWB}"
 CH="${2:?thiếu số chapter, vd 1}"
-SER="series/$BO"
-DIR="$SER/C$CH"
+SER="truyen/$BO"
+PREP="$SER/prepare/C$CH"      # nguyên liệu: sửa tay
+RES="$SER/results/C$CH"       # thành phẩm: sinh lại được hết
 TPL="templates"
 
-mkdir -p "$DIR/pages" "$DIR/results/audio" "$DIR/results/export"
+mkdir -p "$PREP/pages" "$RES/audio" "$RES/export"
 
 # Nội dung template nằm ở templates/, không nhúng vào script — sửa một chỗ, mọi bộ mới đổi theo.
 [ -f "$SER/series-bible.md" ]  || sed "s/{TÊN BỘ}/$BO/g" "$TPL/series-bible.md"  > "$SER/series-bible.md"
@@ -19,6 +20,6 @@ mkdir -p "$DIR/pages" "$DIR/results/audio" "$DIR/results/export"
 [ -f "$SER/tracker.csv" ] || echo "chapter,crawl,beat_sheet,narration,qc,shots,audio,dung,ngay_dang" > "$SER/tracker.csv"
 grep -q "^C$CH," "$SER/tracker.csv" || echo "C$CH,,,,,,,," >> "$SER/tracker.csv"
 
-echo "Đã dựng $DIR"
+echo "Đã dựng $PREP (nguyên liệu) và $RES (thành phẩm)"
 echo "  → crawl:  python3 scripts/crawl-chapter.py '<url>' --bo $BO"
-echo "  → hoặc thả ảnh vào $DIR/pages/ rồi: ./scripts/pipeline.sh $BO $CH"
+echo "  → hoặc thả ảnh vào $PREP/pages/ rồi: ./scripts/pipeline.sh $BO $CH"

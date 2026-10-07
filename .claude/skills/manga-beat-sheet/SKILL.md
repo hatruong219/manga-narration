@@ -10,7 +10,7 @@ panel và hiểu sai vai nhân vật. **Việc ở đây là ĐỌC HIỂU, chư
 
 ## Đọc từ đâu
 
-`series/<BỘ>/C<n>/pages-clean/` — **không đọc `pages/`** (còn banner quảng cáo).
+`truyen/<BỘ>/prepare/C<n>/pages-clean/` — **không đọc `pages/`** (còn banner quảng cáo).
 `clean-pages.py` chưa chạy thì chạy trước.
 
 ## Quy tắc đọc
@@ -22,7 +22,7 @@ panel và hiểu sai vai nhân vật. **Việc ở đây là ĐỌC HIỂU, chư
 - Chữ mờ không đọc được: ghi `KHÔNG ĐỌC ĐƯỢC`, đừng đoán.
 - Trang tiêu đề, trang trắng, trang quảng cáo sót lại: đánh dấu **BỎ**.
 
-## Output → `results/beat-sheet.md`
+## Output → `truyen/<BỘ>/prepare/C<n>/beat-sheet.md`
 
 ```markdown
 ### A. Kiểm tra đầu vào

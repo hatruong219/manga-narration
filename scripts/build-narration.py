@@ -8,10 +8,12 @@ narration.tsv — 2 cột, TAB, dòng # là ghi chú:
     gợi ý trang <TAB> lời kể
 
 Chạy:
-    python3 scripts/build-narration.py series/TWB/C1/results --wps 3.5
+    python3 scripts/build-narration.py truyen/TWB/results/C1 --wps 3.5
 """
 import argparse, re, sys
 from pathlib import Path
+
+from paths import bo_ch, sources
 
 
 def count_words(text: str) -> int:
@@ -35,7 +37,7 @@ def main() -> int:
     ap.add_argument("--title", default="")
     a = ap.parse_args()
 
-    src = a.results / "narration.tsv"
+    src = sources(a.results) / "narration.tsv"
     if not src.exists():
         sys.exit(f"không thấy {src}")
 

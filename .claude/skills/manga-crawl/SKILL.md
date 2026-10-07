@@ -7,7 +7,7 @@ description: Tải ảnh một chapter từ URL trang đọc truyện và bỏ b
 
 ```bash
 python3 scripts/crawl-chapter.py '<url chapter>' --bo <MÃ_BỘ>
-python3 scripts/clean-pages.py series/<MÃ_BỘ>/C<n>/pages
+python3 scripts/clean-pages.py truyen/<MÃ_BỘ>/prepare/C<n>/pages
 ```
 
 `crawl-chapter.py` tự dựng scaffold cấp bộ (`series-bible.md`, `voice-profile.md`,

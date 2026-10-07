@@ -1,15 +1,40 @@
 # Ảnh scan truyện — có bản quyền, KHÔNG đẩy lên repo. Tải lại được bằng crawl-chapter.py
-series/*/C*/pages/
-series/*/C*/pages-clean/
+truyen/*/prepare/C*/pages/
+truyen/*/prepare/C*/pages-clean/
+truyen/*/prepare/C*/shots/
+truyen/*/prepare/C*/export/
 
-# Sản phẩm tái tạo được từ nguồn sự thật (narration.tsv, shots.tsv)
-series/*/C*/results/shots/
-series/*/C*/results/audio/
-series/*/C*/results/export/
-series/*/C*/results/tts-lines/
-series/*/C*/results/_old-3min/
-series/*/videos/
+# Sản phẩm tái tạo được từ nguồn sự thật (narration.tsv, shots.tsv trong prepare/)
+truyen/*/results/C*/shots/
+truyen/*/results/C*/audio/
+truyen/*/results/C*/export/
+truyen/*/results/C*/tts-lines/
+truyen/*/videos/
+
+# Bộ đã cất kho: giữ phần chữ (beat sheet, bible), bỏ ảnh và audio
+archive/**/pages/
+archive/**/pages-clean/
+archive/**/_placeholder/
+archive/**/audio/
+archive/**/shots/
+archive/**/export/
+archive/**/tts-lines/
 
 # Cache
 __pycache__/
 *.pyc
+
+# môi trường python cục bộ
+.venv/
+
+# Khoá API — KHÔNG lên repo
+.env
+
+# Nhạc nền — tài sản của bên thứ ba, không đẩy lên repo
+truyen/*/bgm/
+
+# Nhận diện kênh
+truyen/*/brand/
+
+# Bản sao gọn để đăng — sinh lại được từ truyen/*/results/
+release/

@@ -5,7 +5,7 @@ lời kể nghe giật cục hoặc khó theo khi phát bằng giọng đọc. T
 nên giao cho máy — tai người nghe ra "chưa mượt" nhưng không chỉ được vì sao.
 
 Chạy:
-    python3 scripts/check-narration.py series/TWB/C1/results/narration.tsv
+    python3 scripts/check-narration.py truyen/TWB/prepare/C1/narration.tsv
 """
 import argparse, re, sys
 from collections import Counter
