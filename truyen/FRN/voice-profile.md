@@ -69,6 +69,11 @@ chạy mượt hơn — đọc trước khi bắt đầu một chương mới.
 | C18 | Lần đầu lộ diện — "Máy chém Aura" đối mặt Frieren | kẻ phản diện chờ đợi bấy lâu xuất hiện | — |
 | C19 | Một câu nói đứng riêng — "Là Aura-sama" | lời nói bí ẩn không rõ chủ đích | — |
 | C20 | "Ngươi đã đào tạo những gì cho con bé này vậy?" | đối thủ phải tự hỏi về người thầy vắng mặt | — |
+| C21 | "Chúng ta là những kẻ hèn nhát duy nhất làm ô nhục phép thuật" | danh xưng xấu trở thành sợi dây gắn kết hai thầy trò | — |
+| C22 | "Tự sát đi, Aura." | dùng chính vũ khí của kẻ địch để kết liễu nó | 8,5/10 |
+| C23 | "...Frieren." (thì thầm một mình giữa bãi chôn cất) | lòng biết ơn riêng tư giữa khung cảnh công khai | 8,3/10 |
+| C24 | "Tôi sẽ thay mặt ngài ấy ngợi ca cậu" (lặp nguyên vẹn cách nhau hàng chục năm) | cú lật kiểu thời gian — câu nói cũ dội lại ở khung cảnh mới | 8,2/10 |
+| C25 | "Himmel không thể rút nổi thanh kiếm ấy." | huyền thoại bị lật ngược bởi chính nhân chứng | 8,45/10 |
 
 **LUẬT MỚI — bắt buộc từ C6:**
 - **Cấm mở chương bằng "X năm đã trôi qua kể từ lúc Himmel qua đời."** 4/5 chương C1–C5
@@ -308,6 +313,18 @@ subagent chấm điểm không được giao công cụ đọc ảnh), phải h�
 quyết đó xuống "nghi ngờ, cần người có ảnh xác minh lại" thay vì chấm thẳng điểm 0 và
 yêu cầu xoá. Áp dụng từ C21 trở đi, và áp dụng ngay khi kiểm tra điểm "bịa trích dẫn" ở
 mọi chương cũ nếu nghi ngờ tương tự.
+
+**Lặp lại y hệt ở C22 (09/10/2026):** vòng chấm đầu nghi ngờ 5 chỗ "bịa" (dòng 10, 19,
+29, 31, 45, 58) chỉ vì không khớp hàng nào trong bảng B. Tự tay mở `pages-clean/
+FRN_C22_P06.jpg`, `P10.jpg`, `P14.jpg`, `P18.jpg`, `P21.jpg` ra đối chiếu: **cả 5/5 đều
+có thật 100%, đúng nguyên văn** — toàn bộ là do bảng beat sheet bỏ sót dòng (P10 không
+có hàng nào trong bảng B dù nội dung có thật) hoặc gắn nhầm số trang (người tuyết thật
+ở `P14.jpg` nhưng bảng ghi "P13"). Tỉ lệ sai của giám khảo trong 2 lần kiểm chứng liên
+tiếp là 100% (8/8 nghi ngờ đều sai) — xem đây là bằng chứng mạnh rằng **"không có trong
+bảng B" gần như luôn là bảng B thiếu, không phải lời kể bịa.** Khi tự chấm hoặc giao
+subagent chấm, LUÔN nói rõ trong prompt rằng thiếu-trong-bảng ≠ bịa, và nếu agent chấm
+không có quyền đọc ảnh thì bắt buộc hạ xuống "nghi ngờ" thay vì trừ điểm nặng/kết luận
+chắc chắn.
 
 ## Phạm vi áp dụng bảng "Đã bị QC gạch" — chỉ tính lời NGƯỜI KỂ, không tính lời THOẠI trích dẫn
 
