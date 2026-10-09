@@ -74,6 +74,11 @@ chạy mượt hơn — đọc trước khi bắt đầu một chương mới.
 | C23 | "...Frieren." (thì thầm một mình giữa bãi chôn cất) | lòng biết ơn riêng tư giữa khung cảnh công khai | 8,3/10 |
 | C24 | "Tôi sẽ thay mặt ngài ấy ngợi ca cậu" (lặp nguyên vẹn cách nhau hàng chục năm) | cú lật kiểu thời gian — câu nói cũ dội lại ở khung cảnh mới | 8,2/10 |
 | C25 | "Himmel không thể rút nổi thanh kiếm ấy." | huyền thoại bị lật ngược bởi chính nhân chứng | 8,45/10 |
+| C26 | "Hãy chạy đi, em phải sống" (người anh quay lưng bước vào đám cháy) | sự hy sinh im lặng, tấm lưng nhỏ bé trước quái vật khổng lồ | 8,45/10 |
+| C27 | "Tôi sẽ chọn chính ông — chứ không phải Sein — làm đồng đội của mình" | lựa chọn bất ngờ thay cho người bị từ chối | 7,95/10 (revert sau 5 vòng, dao động nhiễu giữa giám khảo) |
+| C28 | "Anh chưa từng hối hận về quyết định đó cả!!" | lời quát mở chương trở lại đúng khoảnh khắc đau nhất | 8,2/10 |
+| C29 | "Tôi vẫn chỉ là một đứa trẻ không hơn không kém" | câu mở chương trở thành lời tiên tri tự giải đúng lúc cao trào | 8,25/10 |
+| C30 | "Có lẽ thế." (sau khi nhận ra hai chiếc vòng trùng hoạ tiết) | vật kỷ niệm thất lạc tìm lại đúng lúc, khép bằng một trùng hợp lửng lơ không giải thích hết | 8,3/10 (3 vòng: 7,8→7,6→8,3; vòng 2 phát hiện lỗi vượt ảnh gốc ở câu chốt, đã sửa) |
 
 **LUẬT MỚI — bắt buộc từ C6:**
 - **Cấm mở chương bằng "X năm đã trôi qua kể từ lúc Himmel qua đời."** 4/5 chương C1–C5
